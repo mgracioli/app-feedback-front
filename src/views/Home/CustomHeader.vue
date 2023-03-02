@@ -6,11 +6,12 @@
           <img src="../../assets/images/logo_white.png" alt="logo" class="w-full">
 
           <div class="flex">
-            <button class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none">
+            <button @click="() => emit('login')"
+              class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none">
               Entrar
             </button>
 
-            <button class="px-6 py-2 font-bold rounded-full text-white focus:outline-none">
+            <button @click="() => emit('create-account')" class="px-6 py-2 font-bold rounded-full text-white focus:outline-none">
               Crie uma conta
             </button>
           </div>
@@ -20,7 +21,7 @@
       <div class="flex flex-col mt-28">
         <h1 class="text-4xl font-black text-white">
           Tenha um feedback. <br>
-          E faça seus clientes mais  <br class="hidden lg:inline-block">
+          E faça seus clientes mais <br class="hidden lg:inline-block">
           felizes
         </h1>
 
@@ -39,6 +40,16 @@
   </header>
 </template>
 
+<script>
+export default {
+  setup (_, { emit }) {
+    return {
+      emit
+    }
+  }
+}
+</script>
+
 <style lang="postcss" scoped>
 .header {
   @apply bg-brand-main w-full flex justify-center //aplica classes do tailwind
@@ -49,7 +60,7 @@
   @apply flex flex-col w-4/5 max-w-6xl
 }
 
-@media (min-width: 640px){
+@media (min-width: 640px) {
   .header-group {
     background-image: url(../../assets/images/blue_baloons.png);
     background-size: 622px;
