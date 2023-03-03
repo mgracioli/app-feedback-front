@@ -1,3 +1,15 @@
+export function validateName (value) {
+  if (!value) {
+    return 'Este campo é obrigatório'
+  }
+
+  if (value.length < 3) {
+    return 'Nome precisa conter mais que 2 caracteres'
+  }
+
+  return true
+}
+
 export function validateSenha (value) {
   if (!value) {
     return 'Este campo é obrigatório'
