@@ -27,6 +27,8 @@ export default {
         }
 
         const { data } = await services.users.getMe()
+
+        console.log('data', data)
       }
     })
   }

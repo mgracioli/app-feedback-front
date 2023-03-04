@@ -4,17 +4,18 @@
       <div class="flex item-center justify-between py-10">
         <div class="w-28 lg:w-36">
           <img src="../../assets/images/logo_white.png" alt="logo" class="w-full">
+        </div>
 
-          <div class="flex">
-            <button @click="() => emit('login')"
-              class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none">
-              Entrar
-            </button>
+        <div class="flex">
+          <button @click="() => emit('create-account')"
+            class="px-6 py-2 font-bold rounded-full text-white focus:outline-none">
+            Crie uma conta
+          </button>
 
-            <button @click="() => emit('create-account')" class="px-6 py-2 font-bold rounded-full text-white focus:outline-none">
-              Crie uma conta
-            </button>
-          </div>
+          <button @click="() => emit('login')"
+            class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none">
+            Entrar
+          </button>
         </div>
       </div>
 
@@ -52,7 +53,7 @@ export default {
 
 <style lang="postcss" scoped>
 .header {
-  @apply bg-brand-main w-full flex justify-center //aplica classes do tailwind
+  @apply bg-brand-main w-full flex justify-center;
   height: 700px;
 }
 
