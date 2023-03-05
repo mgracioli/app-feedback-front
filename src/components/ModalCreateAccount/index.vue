@@ -16,7 +16,7 @@
 
         <input v-model="state.name.value" type="text"
           class="block w-full px-4 py-3 mt-1 text-lg bg-gray-100 border-2 border-transparent rounded"
-          :class="{ 'border-brand-danger': !!state.name.errorMessage }">
+          :class="{ 'border-red-400': !!state.name.errorMessage }">
 
         <span v-if="!!state.name.errorMessage" class="block font-medium text-brand-danger">
           {{ state.name.errorMessage }}
@@ -28,7 +28,7 @@
 
         <input v-model="state.email.value" type="email"
           class="block w-full px-4 py-3 mt-1 text-lg bg-gray-100 border-2 border-transparent rounded"
-          :class="{ 'border-brand-danger': !!state.email.errorMessage }">
+          :class="{ 'border-red-400': !!state.email.errorMessage }">
 
         <span v-if="!!state.email.errorMessage" class="block font-medium text-brand-danger">
           {{ state.email.errorMessage }}
@@ -40,7 +40,7 @@
 
         <input v-model="state.password.value" type="password"
           class="block w-full px-4 py-3 mt-1 text-lg bg-gray-100 border-2 border-transparent rounded"
-          :class="{ 'border-brand-danger': !!state.password.errorMessage }">
+          :class="{ 'border-red-400': !!state.password.errorMessage }">
 
         <span v-if="!!state.password.errorMessage" class="block font-medium text-brand-danger">
           {{ state.password.errorMessage }}
@@ -99,7 +99,7 @@ export default {
       isLoading: false,
       name: {
         value: nameValue,
-        nameMessage: nameErrorMessage
+        errorMessage: nameErrorMessage
       },
       password: {
         value: passwordValue,
