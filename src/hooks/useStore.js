@@ -1,9 +1,9 @@
 import Store from '../store'
 
-export default useStore = (modulo) => {
-  if(modulo){
+export default function useStore (modulo) {
+  if (modulo) {
     return Store[modulo]
-  } else{
+  } else {
     return Store
   }
 }

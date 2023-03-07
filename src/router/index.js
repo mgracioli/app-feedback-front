@@ -7,7 +7,7 @@ const Credentials = () => import('../views/Credentials')
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: Home
   },
   {
