@@ -13,7 +13,7 @@
 
         <li @click="() => router.push({ name: 'Feedbacks' })"
           class="px-6 py-2 mr-2 font-bold text-white rounded-full cursor-pointer focus:outline-none">
-          Feedback
+          Feedbacks
         </li>
 
         <li @click="handleLogout"
