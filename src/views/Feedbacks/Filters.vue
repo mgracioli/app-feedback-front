@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="text-2xl mt-5 font-regular text-brand-graydark">
+    <h1 class="text-2xl mt-5 font-regular text-brand-dark-gray">
       Filtros
     </h1>
 
@@ -8,7 +8,7 @@
       <li v-for="filter in state.filters" :key="filter.label" :class="{ 'bg-gray-200 bg-opacity-50': filter.active }"
         @click="() => handleSelect(filter)" class="flex items-center justify-between px-4 py-1 rounded cursor-pointer">
         <div class="flex items-center">
-          <span :class="`bg-${filter.color}`" class="inline-block w-2 h-2 mr-2 rounded-full" />
+          <span :class="`bg-${filter.color}`" class="inline-block w-2 h-2 mr-2 rounded-full"></span>
 
           {{ filter.label }}
         </div>
@@ -69,8 +69,6 @@ export default {
       }]
     })
 
-    console.log('aqui2222i')
-
     try {
       const { data } = await services.feedbacks.getSummary()
 
@@ -88,8 +86,6 @@ export default {
         console.log('isloading')
         return
       }
-
-      console.log('aquii')
 
       state.filters = state.filters.map((filter) => {
         if (filter.type === type) {
