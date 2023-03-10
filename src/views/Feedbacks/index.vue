@@ -22,7 +22,7 @@
 
         <suspense>
           <template #default>
-            <filters class="mt-8 animate__animated animate__fadeIn animate__faster" />
+            <filters @select="changeFeedbacksType" class="mt-8 animate__animated animate__fadeIn animate__faster" />
           </template>
 
           <template #fallback>
@@ -40,8 +40,8 @@
           Nenhum feedback encontrado
         </p>
 
-        <feedback-card-loading v-if="state.isLoading" />
-        <feedback-card v-else v-for="(feedback, index) in state.feedbacks" :key="feedback.id" :is-open="index === 0"
+        <feedback-card-loading v-if="state.isLoading || state.isLoadingFeedbacks" />
+        <feedback-card v-else v-for="(feedback, index) in state.feedbacks" :key="feedback.id" :is-opened="index === 0"
           :feedback="feedback" class="mb-8" />
       </div>
     </div>
@@ -69,10 +69,11 @@ export default {
   setup () {
     const state = reactive({
       isLoading: false,
+      isLoadingFeedbacks: false,
       feedbacks: [],
       currentFeedbackType: '',
       pagination: {
-        limit: 5,
+        limit: 10,
         offset: 0
       },
       hasError: false
@@ -83,6 +84,7 @@ export default {
     })
 
     function handleErrors (error) {
+      state.isLoading = false
       state.hasError = !!error
     }
 
@@ -104,8 +106,29 @@ export default {
       }
     }
 
+    async function changeFeedbacksType (type) {
+      try {
+        state.isLoadingFeedbacks = true
+        state.pagination.limit = 10
+        state.pagination.offset = 0
+        state.currentFeedbackType = type
+
+        const { data } = await services.feedbacks.getAll({
+          type,
+          ...state.pagination
+        })
+
+        state.feedbacks = data.results
+        state.pagination = data.pagination
+        state.isLoadingFeedbacks = false
+      } catch (error) {
+        handleErrors(error)
+      }
+    }
+
     return {
-      state
+      state,
+      changeFeedbacksType
     }
   }
 }
