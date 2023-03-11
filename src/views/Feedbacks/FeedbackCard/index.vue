@@ -13,7 +13,7 @@
     </div>
 
     <div :class="{ animate__fadeOut: state.isClosing }" v-if="state.isOpen"
-      class="flex mt-8 animate__animated animate__fadeInUp animate__faster separator">
+      class="flex mt-4 animate__animated animate__fadeInUp animate__faster separator">
 
       <div class="flex flex-col w-1/2">
         <div class="flex flex-col">
@@ -21,7 +21,7 @@
           <span class="font-regular text-gray-700">{{ feedback.page }}</span>
         </div>
 
-        <div class="flex flex-col">
+        <div class="flex flex-col mt-2">
           <span class="font-regular text-gray-400 uppercase select-none">Dispositivo</span>
           <span class="font-regular text-gray-700">{{ feedback.device }}</span>
         </div>
@@ -30,7 +30,7 @@
       <div class="flex flex-col w-1/2">
         <div class="flex flex-col">
           <span class="font-regular text-gray-400 uppercase select-none">usuário</span>
-          <span class="text-lg font-regular text-gray-700">{{ feedback.fingerprint }}</span>
+          <span class="font-regular text-gray-700">{{ feedback.fingerprint }}</span>
         </div>
       </div>
     </div>
@@ -99,6 +99,6 @@ export default {
   height: 1px;
   border: 1px solid #cfcfcf;
   position: absolute;
-  top: -17px
+  top: -12px
 }
 </style>

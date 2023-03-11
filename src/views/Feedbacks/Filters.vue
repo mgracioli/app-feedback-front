@@ -71,19 +71,14 @@ export default {
 
     try {
       const { data } = await services.feedbacks.getSummary()
-
-      console.log('data', data)
       state.filters = applyFilterStructure(data)
     } catch (error) {
       state.hasError = !!error
       state.filters = applyFilterStructure({ all: 0, issue: 0, idea: 0, other: 0 })
-
-      console.log('errroo')
     }
 
     function handleSelect ({ type }) {
       if (store.isLoading) {
-        console.log('isloading')
         return
       }
 
