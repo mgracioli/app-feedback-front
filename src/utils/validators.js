@@ -32,4 +32,6 @@ export function validateEmail (value) {
   if (!emailValid) {
     return 'Email inválido'
   }
+
+  return true
 }
