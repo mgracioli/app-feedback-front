@@ -62,7 +62,7 @@
 <script>
 
 import useModal from '@/hooks/useModal'
-import { reactive } from 'vue'
+import { reactive, watch } from 'vue'
 import { useField } from 'vee-validate'
 import { validateName, validateSenha, validateEmail } from '../../utils/validators'
 import services from '../../services'
@@ -109,6 +109,14 @@ export default {
         value: emailValue,
         errorMessage: emailErrorMessage
       }
+    })
+
+    // function formataValue (valor) {
+    //   console.log(valor)
+    // }
+
+    watch(state.name.value, () => {
+      console.log(state.name.value)
     })
 
     async function login ({ email, password }) {

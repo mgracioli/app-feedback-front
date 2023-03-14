@@ -16,7 +16,7 @@
           Feedbacks
         </li>
 
-        <li @click="handleLogout"
+        <li id="logout-button" @click="handleLogout"
           class="px-6 py-2 font-bold bg-white rounded-full cursor-pointer text-brand-mais focus:outline-none">
           {{ logoutLabel }}
         </li>
