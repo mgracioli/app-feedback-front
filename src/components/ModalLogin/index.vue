@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between">
+  <div id="login-create-account" class="flex justify-between">
     <h1 class="text-4xl font-black text-gray-800">
       Entre na sua conta
     </h1>

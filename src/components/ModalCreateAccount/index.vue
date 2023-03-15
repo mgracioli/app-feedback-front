@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between">
+  <div id="modal-create-account" class="flex justify-between">
     <h1 class="text-4xl font-black text-gray-800">
       Crie uma conta
     </h1>
@@ -110,10 +110,6 @@ export default {
         errorMessage: emailErrorMessage
       }
     })
-
-    // function formataValue (valor) {
-    //   console.log(valor)
-    // }
 
     watch(state.name.value, () => {
       console.log(state.name.value)
